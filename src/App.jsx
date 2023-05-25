@@ -3,6 +3,7 @@ import { Home, About, FAQ, Contact, NotFound, Careers, CareerDetail, CareersErro
 import { RootLayout, HelpLayout, CareersLayout } from './layouts'
 import { careersLoader } from './pages/careers/Careers'
 import { careerDetailsLoader } from './pages/careers/CareerDetails'
+import { contactAction } from './pages/help/Contact'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -12,7 +13,7 @@ const router = createBrowserRouter(
 
       <Route path='help' element={<HelpLayout />}>
         <Route path='faq' element={<FAQ />} />
-        <Route path='contact' element={<Contact />} />
+        <Route path='contact' element={<Contact />} action={contactAction} />
       </Route>
 
       <Route path='careers' element={<CareersLayout />} errorElement={<CareersError />}>
@@ -30,7 +31,6 @@ const router = createBrowserRouter(
       </Route>
 
       <Route path='*' element={<NotFound />}></Route>
-
     </Route>
   )
 )
@@ -41,4 +41,4 @@ function App() {
   )
 }
 
-export default App;
+export default App
